@@ -1,0 +1,29 @@
+name: HDHive Auto Checkin
+
+on:
+  schedule:
+    # 每天北京时间上午 8:15 运行 (UTC 0:15)
+    - cron: '30 0 * * *'
+  workflow_dispatch: # 允许点击按钮手动运行测试
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Run Script
+        env:
+          HD_ACCOUNTS: ${{ secrets.HD_ACCOUNTS }}
+          TG_TOKEN: ${{ secrets.TG_TOKEN }}
+          TG_CHAT_ID: ${{ secrets.TG_CHAT_ID }}
+        run: python main.py
