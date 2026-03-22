@@ -6,7 +6,7 @@ import time
 # 1. 账号列表（支持无限添加）
 DEBUG_ACCOUNTS = [
     {"user": "xxx", "pass": "xxx"},
-    {"user": "xxx", "pass": "xxx"},
+    {"user": "xxx", "pass": "xxx"}
 ]
 
 # 2. Telegram 配置
@@ -25,22 +25,32 @@ LOGIN_ACTION_ID = "601d84138632d39f16adfce544ceb527a6f6243670"
 CHECKIN_ACTION_ID = "409539c7faa0ad25d3e3e8c21465c10661896ca5a2"
 # ======================================================
 
+#0:{"a":"$@1","f":"","b":"0XGec8xNA_Tl9P6FngCg3","q":"","i":false}
+#1:{"response":{"success":true,"message":"签到成功，获得 4 积分","code":"200"}}
 def decode_next_response(response):
-    """处理 Next.js 响应流并修复 UTF-8 乱码"""
     try:
-        # 强制使用 utf-8 解码内容
-        content = response.content.decode('utf-8')
-        for line in content.split('\n'):
-            if '{"error"' in line or '"success"' in line:
-                start_idx = line.find('{')
-                data = json.loads(line[start_idx:])
-                if "error" in data:
-                    err = data['error']
-                    return f"❌ {err.get('description', '未知原因')}"
-                return "✅ 签到成功"
+        # 强制解码
+        text = response.content.decode('utf-8')
+
+        for line in text.split('\n'):
+            if '{"response"' in line or '{"error"' in line:
+                # 提取 JSON 部分
+                json_data = json.loads(line[line.find('{'):])
+
+                # 成功分支
+                if "response" in json_data:
+                    msg = json_data["response"].get("message", "成功")
+                    return f"✅ {msg}"
+
+                # 失败分支
+                if "error" in json_data:
+                    desc = json_data["error"].get("description", "原因未知")
+                    return f"❌ {desc}"
+
     except Exception as e:
         return f"⚠️ 解析异常: {str(e)[:20]}"
-    return "❓ 未知响应格式"
+
+    return "❓ 格式未知"
 
 def send_tg_summary(results):
     """发送汇总通知"""
