@@ -26,14 +26,17 @@ TG_CHAT_ID = "xxx" # 记得填入你的数字 ID
 # PROXIES = {"http": "http://127.0.0.1:7897", "https": "http://127.0.0.1:7897"}
 # =====================================================================================
 
+BASE_URL = "https://hdhive.com"
+LOGIN_ACTION_ID = "603b753f736d128b24c8b4f894057aa301eda77339"
+CHECKIN_ACTION_ID = "40efbc107064215e9eff178b0466274739ba7d9cb4"
+
 # 逻辑：优先读取 GitHub Secrets，如果没有则使用上面的 DEBUG 值
 ACCOUNTS_JSON = os.getenv("HD_ACCOUNTS") or json.dumps(DEBUG_ACCOUNTS)
 FINAL_TG_TOKEN = os.getenv("TG_TOKEN") or TG_TOKEN
 FINAL_TG_CHAT_ID = os.getenv("TG_CHAT_ID") or TG_CHAT_ID
-
-BASE_URL = "https://hdhive.com"
-LOGIN_ACTION_ID = "603b753f736d128b24c8b4f894057aa301eda77339"
-CHECKIN_ACTION_ID = "40efbc107064215e9eff178b0466274739ba7d9cb4"
+# 逻辑：优先从 Secrets 读取，如果没有则使用代码里的默认值
+LOGIN_ACTION_ID = os.getenv("LOGIN_ACTION_ID") or LOGIN_ACTION_ID
+CHECKIN_ACTION_ID = os.getenv("CHECKIN_ACTION_ID") or CHECKIN_ACTION_ID
 
 def decode_next_response(response):
     """

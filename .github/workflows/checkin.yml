@@ -31,5 +31,8 @@ jobs:
           HD_ACCOUNTS: ${{ secrets.HD_ACCOUNTS }}
           TG_TOKEN: ${{ secrets.TG_TOKEN }}
           TG_CHAT_ID: ${{ secrets.TG_CHAT_ID }}
+          # 新增下面两行
+          LOGIN_ACTION_ID: ${{ secrets.LOGIN_ACTION_ID }}
+          CHECKIN_ACTION_ID: ${{ secrets.CHECKIN_ACTION_ID }}
         # 确保这里的文件名 checkin.py 与你仓库里的文件名完全一致
         run: python checkin.py
