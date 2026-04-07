@@ -22,13 +22,14 @@ HDHive 自动签到脚本，基于 GitHub Actions 实现每日自动签到，支
 
 添加以下 Secrets：
 
-| Name | Value | Description |
-|------|-------|-------------|
-| `HD_ACCOUNTS` | `[{"user":"your-email@example.com","pass":"your-password"}]` | 账号信息 JSON 格式，多账号用逗号分隔 |
-| `TG_TOKEN` | `xxxxxx:yyyyyyyy` | Telegram Bot Token（可选，不需要通知留空） |
-| `TG_CHAT_ID` | `123456789` | Telegram Chat ID（可选） |
-| `LOGIN_ACTION_ID` | `603b753f736d128b24c8b4f894057aa301eda77339` | 登录 Action ID（网站变更时需要更新） |
-| `CHECKIN_ACTION_ID` | `40efbc107064215e9eff178b0466274739ba7d9cb4` | 签到 Action ID（网站变更时需要更新） |
+| Name | Value                                                        | Description                    |
+|------|--------------------------------------------------------------|--------------------------------|
+| `HD_ACCOUNTS` | `[{"user":"your-email@example.com","pass":"your-password"}]` | 账号信息 JSON 格式，多账号用逗号分隔          |
+| `TG_TOKEN` | `xxxxxx:yyyyyyyy`                                            | Telegram Bot Token（可选，不需要通知留空） |
+| `TG_CHAT_ID` | `123456789`                                                  | Telegram Chat ID（可选）           |
+| `LOGIN_ACTION_ID` | `603b753f736d128b24c8b4f894057aa301eda77339`                 | 登录 Action ID（网站变更时需要更新）        |
+| `CHECKIN_ACTION_ID` | `40efbc107064215e9eff178b0466274739ba7d9cb4`                 | 签到 Action ID（网站变更时需要更新）        |
+| `GAMBLE_CHECKIN` | `True`                                                       | 是否开启赌狗签到，默认True                |
 
 **Example `HD_ACCOUNTS` 格式:**
 ```json
