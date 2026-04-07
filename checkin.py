@@ -173,7 +173,7 @@ def run():
             response_checkin = session.post(
                 f"{BASE_URL}/", 
                 headers=h_checkin, 
-                data=user
+                data=checkin_payload
             )
             
             logger.debug(f"[{user}] 签到响应状态码: {response_checkin.status_code}")
