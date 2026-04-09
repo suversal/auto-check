@@ -30,8 +30,8 @@ HDHive 自动签到脚本，基于 GitHub Actions 实现每日自动签到，支
 | `LOGIN_ACTION_ID` | `603b753f736d128b24c8b4f894057aa301eda77339`                 | 登录 Action ID（网站变更时需要更新）        |
 | `CHECKIN_ACTION_ID` | `40efbc107064215e9eff178b0466274739ba7d9cb4`                 | 签到 Action ID（网站变更时需要更新）        |
 | `GAMBLE_CHECKIN` | `True/False`                                                 | 是否开启赌狗签到，不配置默认False            |
+**ACTION_ID可以在登录和签到接口中查看并更新**
 <img width="835" height="389" alt="image" src="https://github.com/user-attachments/assets/7c6f97dc-37db-474f-a06e-267e60a793be" />
-ACTION_ID可以在登录和签到接口中查看并更新
 
 **Example `HD_ACCOUNTS` 格式:**
 ```json
