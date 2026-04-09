@@ -29,7 +29,7 @@ HDHive 自动签到脚本，基于 GitHub Actions 实现每日自动签到，支
 | `TG_CHAT_ID` | `123456789`                                                  | Telegram Chat ID（可选）           |
 | `LOGIN_ACTION_ID` | `603b753f736d128b24c8b4f894057aa301eda77339`                 | 登录 Action ID（网站变更时需要更新）        |
 | `CHECKIN_ACTION_ID` | `40efbc107064215e9eff178b0466274739ba7d9cb4`                 | 签到 Action ID（网站变更时需要更新）        |
-| `GAMBLE_CHECKIN` | `True`                                                       | 是否开启赌狗签到，默认True                |
+| `GAMBLE_CHECKIN` | `True/False`                                                 | 是否开启赌狗签到，不配置默认False            |
 
 **Example `HD_ACCOUNTS` 格式:**
 ```json

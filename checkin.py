@@ -3,6 +3,7 @@ import logging
 import requests
 import json
 import time
+from datetime import datetime, timezone, timedelta
 
 # 配置日志格式和级别
 logging.basicConfig(
@@ -89,7 +90,8 @@ def send_tg_notice(summary):
     text += "━━━━━━━━━━━━━━━━━━\n\n"
     text += "\n\n".join(summary)
     text += "\n\n━━━━━━━━━━━━━━━━━━\n"
-    text += f"⏰ <i>{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}</i>"
+    bj_time = datetime.now(timezone(timedelta(hours=8))).strftime('%Y-%m-%d %H:%M:%S')
+    text += f"⏰ <i>{bj_time}</i>"
 
     url = f"https://api.telegram.org/bot{FINAL_TG_TOKEN}/sendMessage"
     
