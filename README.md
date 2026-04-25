@@ -1,5 +1,18 @@
 # HDHive Auto Checkin
 
+<div align="center">
+  <h1>🚨 强烈推荐：请迁移至全新自动化方案！🚨</h1>
+  <p><b>当前版本采用接口请求，遇到网站更新时需频繁手动抓包获取 ActionId，维护极为繁琐。</b></p>
+  <p><b>现已推出基于 Python + Playwright 的全新无头浏览器自动化方案，彻底告别手动更新配置，真正实现 0 维护稳定运行！</b></p>
+  <h3>👉 <a href="https://github.com/suversal/hdhive-auto-checkin">点击此处前往新项目：HDHive 自动化签到工具 (Playwright 版)</a> 👈</h3>
+  <br/>
+</div>
+
+> [!IMPORTANT]
+> **重要提醒**：本项目（手动配置 ActionId 方案）将不再维护，强烈建议所有用户立即前往上述链接使用最新版本！
+
+---
+
 HDHive 自动签到脚本，基于 GitHub Actions 实现每日自动签到，支持多账号和 Telegram 通知。
 
 ## 功能特性
